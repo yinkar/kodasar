@@ -13,12 +13,16 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('dictionaries', function (Blueprint $table) {
+        Schema::create('entries', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('slug');
-            $table->string('description');
+            $table->string('command');
+            $table->text('info')->nullable();
+            $table->foreignId('dictionary_id');
             $table->foreignId('user_id');
+            $table->string('ip')->nullable();
+            $table->string('library')->nullable();
+            $table->text('example')->nullable();
+            $table->text('extra')->nullable();
             $table->boolean('validated');
             $table->timestamps();
         });
@@ -31,6 +35,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('dictionaries');
+        Schema::dropIfExists('entries');
     }
 };

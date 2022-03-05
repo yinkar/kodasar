@@ -25,6 +25,7 @@
     },
     "dependencies": {
         "@fontsource/questrial": "^4.5.2",
-        "@fontsource/raleway": "^4.5.3"
+        "@fontsource/raleway": "^4.5.3",
+        "highlight.js": "^11.4.0"
     }
 }

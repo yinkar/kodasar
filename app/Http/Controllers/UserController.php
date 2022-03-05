@@ -14,21 +14,23 @@ class UserController extends Controller
     /**
      * Login
      *
-     * @return void
+     * @return \Illuminate\Http\Response
      */
     public function login() {
-        return view('users.login');
+        return response()
+            ->view('users.login');
     }
-    
+
     /**
      * Register
      *
-     * @return void
+     * @return \Illuminate\Http\Response
      */
     public function register() {
         $users = User::all();
 
-        return view('users.register');
+        return response()
+            ->view('users.register');
     }
 
     /**

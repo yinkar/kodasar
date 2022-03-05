@@ -10,9 +10,10 @@
 </head>
 
 <body class="bg-neutral-900 font-raleway">
-    @include('layouts.navbar');
+    @include('layouts.navbar')
 
     @yield('page')
+    <script src="{{ mix('js/hljs.js') }}" defer></script>
 </body>
 
 </html>

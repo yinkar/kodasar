@@ -16,9 +16,15 @@ class DictionaryController extends Controller
      */
     public function index()
     {
-        $dictionaries = Dictionary::all();
+         $dictionaries = cache()
+             ->remember(
+                 'dictionaries',
+                 now()->addMinutes(30),
+                 fn () => Dictionary::all()
+             );
 
-         return view('dictionaries.list', compact('dictionaries'));
+        return response()
+            ->view('dictionaries.list', compact('dictionaries'));
     }
 
     /**
@@ -50,7 +56,8 @@ class DictionaryController extends Controller
      */
     public function show(Dictionary $dictionary)
     {
-         return view('dictionaries.show', compact('dictionary'));
+         return response()
+             ->view('dictionaries.show', compact('dictionary'));
     }
 
     /**

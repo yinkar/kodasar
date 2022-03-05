@@ -42,4 +42,12 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function dictionary() {
+        return $this->hasOne(Dictionary::class, 'user_id', 'id');
+    }
+
+    public function entry() {
+        return $this->hasOne(Entry::class, 'user_id', 'id');
+    }
 }
