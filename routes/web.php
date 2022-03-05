@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\DictionaryController;
+use App\Http\Controllers\SearchController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,16 +16,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
+// Dictionaries
+Route::get('/', [ DictionaryController::class, 'index' ]);
+
+Route::controller(DictionaryController::class)->group(function () {
+    Route::get('/dictionary/{dictionary:slug}', 'show');
 });
 
-
-Route::get('/login', function () {
-    return view('login');
+// Users
+Route::controller(UserController::class)->group(function () {
+    Route::get('/login', 'login');
+    Route::get('/register', 'register');
+    Route::post('/register', 'save');
 });
 
+// Search
 
-Route::get('/register', function () {
-    return view('register');
-});
+Route::get('/search', [ SearchController::class, 'results' ]);
