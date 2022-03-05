@@ -5,7 +5,16 @@ module.exports = {
     "./resources/**/*.vue",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        'questrial': [
+          'Questrial', 'sans-serif'
+        ],
+        'raleway': [
+          'Raleway', 'sans-serif'
+        ],
+      },
+    },
   },
   plugins: [],
 }
