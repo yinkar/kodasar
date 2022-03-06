@@ -1,4 +1,7 @@
 <x-two_column title="{{ sprintf('%s - %s', $entry->command, config('app.name')) }}">
+    <x-slot name="description">
+        {{ $entry->command }}: {{ $entry->info }}
+    </x-slot>
     <h2 class="text-cyan-400 text-3xl mt-2 mb-4 font-questrial">{{ $entry->command }}</h2>
 
     <section>

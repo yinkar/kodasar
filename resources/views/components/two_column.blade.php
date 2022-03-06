@@ -1,4 +1,9 @@
 <x-master title="{{ $title }}">
+    @if (!empty($description))
+        <x-slot name="description">
+            $description
+        </x-slot>
+    @endif
     <x-slot name="page">
         <div class="container mx-auto px-4 grid grid-cols-12 gap-3 mt-10 mb-4">
             <div class="col-span-9">

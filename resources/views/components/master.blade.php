@@ -1,3 +1,6 @@
+@if (empty($description))
+    @php ($description = env('SITE_DESCRIPTION'))
+@endif
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,7 +9,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{{ $title }}</title>
     <link href="{{ asset('css/app.css') }}" rel="stylesheet" />
-    <link rel="shortcut icon" href="favicon.png" type="image/x-icon" />
+    <link rel="shortcut icon" href="{{ asset('favicon.png') }}" type="image/x-icon" />
+    
+    <meta name="description" content="{{ $description }}" />
+    <meta property="og:description" content="{{ $description }}" />
+
+    <meta name="theme-color" content="#517699" />
 </head>
 
 <body class="bg-neutral-900 font-raleway">
