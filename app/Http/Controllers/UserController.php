@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Hash;
 
 /**
  * Users
@@ -40,16 +40,16 @@ class UserController extends Controller
      * @return void
      */
     public function save(Request $request) {
-        $user = User::create([
-            'name' => $request->input('name'),
-            'username' => $request->input('username'),
-            'email' => $request->input('email'),
-            'password' => $request->input('password'),
-            'gender' => $request->input('gender')
+        $userValidation = request()->validate([
+            'name' => 'required|max:255',
+            'username' => 'required|min:3|max:50|unique:users,username',
+            'email' => 'email|required|max:255|unique:users,email',
+            'password' => 'required|min:6|max:255',
+            'gender' => 'required',
         ]);
 
-        if (!!$user->save()) {
-            return redirect(url('register'));
-        }
+        User::create($userValidation);
+
+        return redirect(url('register'));
     }
 }

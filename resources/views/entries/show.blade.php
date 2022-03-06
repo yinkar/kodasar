@@ -9,7 +9,7 @@
             {{ $entry->info }}
         </p>
         <p class="my-2">
-            <strong>Language:</strong> <a class="font-bold text-blue-400 hover:text-blue-300 transition-colors" href="{{ url('dictionary', $entry->dictionary->slug) }}">{{ $entry->dictionary->name }}</a>
+            <strong>Language:</strong> <a class="font-bold text-blue-400 hover:text-blue-300 transition-colors" href="{{ url('dictionaries', $entry->dictionary->slug) }}">{{ $entry->dictionary->name }}</a>
         </p>
 
         @if (!!$entry->library)

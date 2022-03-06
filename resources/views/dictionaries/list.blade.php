@@ -1,6 +1,11 @@
 <x-two_column title="{{ config('app.name') }}">
     <h2 class="text-cyan-400 text-3xl mt-2 mb-4 font-questrial">Dictionaries</h2>
     <ul class="dictionaries">
+        @if ($dictionaries->isEmpty())
+        <x-info>
+            There's no dictionary.
+        </x-info>
+        @endif
     
         @foreach ($dictionaries as $dictionary)
         <li>
