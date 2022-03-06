@@ -30,7 +30,7 @@
             </div>
             <div class="my-2">
                 <label class="block w-full py-2" for="example"><strong>Example</strong></label>
-                <div contenteditable="true" class="block w-full p-2 bg-neutral-600 rounded-sm focus:outline-none focus:bg-neutral-500" id="example_area">{{ \base64_decode(old('example')) }}</div>
+                <div contenteditable="plaintext-only" class="block w-full p-2 bg-neutral-600 rounded-sm focus:outline-none focus:bg-neutral-500" id="example_area">{{ \base64_decode(old('example')) }}</div>
                 <textarea class="hidden" type="text" name="example" id="example"></textarea>
                 @error('example')
                     <div class="text-sm text-red-600">{{ $message }}</div>
@@ -54,7 +54,7 @@
         const inputArea = document.querySelector('#example');
 
         const bind = (area, inputArea) => {
-            inputArea.value = btoa(area.textContent);
+            inputArea.value = btoa(area.innerText);
         }
 
         bind(area, inputArea);
