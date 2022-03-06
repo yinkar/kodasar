@@ -1,7 +1,7 @@
 <div class="block bg-neutral-800 text-neutral-100 rounded-sm border-neutral-700 border shadow px-4 py-2">
     
-    @guest
     <ul>
+        @guest
         <li>
             <a href="/login" class="profile-link bg-blue-500 block px-4 py-2 hover:bg-blue-400 transition-colors my-1 rounded-sm">
                 Login
@@ -12,14 +12,7 @@
                 Register
             </a>
         </li>
-        <li>
-            <a href="#" class="profile-link bg-neutral-300 text-neutral-700 block px-4 py-2 hover:bg-neutral-100 transition-colors my-1 rounded-sm">
-                <i class="fa-solid fa-sun"></i> Light mode
-            </a>
-        </li>
-    </ul>
-    @else
-    <ul>
+        @else
         <li>
             <a href="#" class="profile-link bg-green-600 block px-4 py-2 hover:bg-green-500 transition-colors my-1 rounded-sm">
                 {{ auth()->user()->username }}
@@ -40,14 +33,19 @@
                 Log out
             </a>
         </li>
+        @endguest
         <li>
-            <a href="#" class="profile-link bg-neutral-300 text-neutral-700 block px-4 py-2 hover:bg-neutral-100 transition-colors my-1 rounded-sm">
+            @if (session('dark_mode'))
+            <a href="{{ url('to-light') }}" class="profile-link bg-neutral-300 text-neutral-700 block px-4 py-2 hover:bg-neutral-100 transition-colors my-1 rounded-sm">
                 <i class="fa-solid fa-sun"></i> Light mode
             </a>
+            @else
+            <a href="{{ url('to-dark') }}" class="profile-link bg-black text-yellow-500 block px-4 py-2 hover:text-yellow-400 hover:bg-neutral-900 transition-colors my-1 rounded-sm">
+                <i class="fa-solid fa-moon"></i> Dark mode
+            </a>
+            @endif
         </li>
     </ul>
-    @endguest
-
 </div>
 
 <div class="info-links my-2">

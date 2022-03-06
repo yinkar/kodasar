@@ -49,3 +49,13 @@ Route::get('/search', [ SearchController::class, 'results' ]);
 // Other pages
 Route::get('/about', fn () => view('about'));
 Route::get('/help', fn () => view('help.main'));
+
+// Color mode
+Route::get('/to-dark', function () {
+    session(['dark_mode' => true]);
+    return back();
+});
+Route::get('/to-light', function () {
+    session(['dark_mode' => false]);
+    return back();
+});
