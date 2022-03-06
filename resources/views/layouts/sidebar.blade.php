@@ -57,10 +57,10 @@
 <div class="info-links my-2">
     <ul class="flex justify-end">
         <li>
-            <a href="#" class="text-neutral-500 hover:text-neutral-400 transition-colors mx-2 text-sm">Help</a>
+            <a href="{{ url('help') }}" class="text-neutral-500 hover:text-neutral-400 transition-colors mx-2 text-sm">Help</a>
         </li>
         <li>
-            <a href="#" class="text-neutral-500 hover:text-neutral-400 transition-colors mx-2 text-sm">About</a>
+            <a href="{{ url('about') }}" class="text-neutral-500 hover:text-neutral-400 transition-colors mx-2 text-sm">About</a>
         </li>
     </ul>
 </div>

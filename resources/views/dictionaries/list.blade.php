@@ -8,7 +8,7 @@
 
     @foreach ($dictionaries as $dictionary)
     <li>
-        <a href="{{ url('dictionary', $dictionary->slug) }}" class="bg-neutral-700 block px-4 py-2 border-l-4 hover:border-l-8 border-blue-600 hover:border-blue-400 text-lg w-full my-2 hover:bg-neutral-600 transition-all rounded-r-sm">
+        <a href="{{ url('dictionaries', $dictionary->slug) }}" class="bg-neutral-700 block px-4 py-2 border-l-4 hover:border-l-8 border-blue-600 hover:border-blue-400 text-lg w-full my-2 hover:bg-neutral-600 transition-all rounded-r-sm">
             {{ $dictionary->name }}
         </a>
     </li>

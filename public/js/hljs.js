@@ -59381,11 +59381,7 @@ var __webpack_exports__ = {};
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var highlight_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! highlight.js */ "./node_modules/highlight.js/es/index.js");
 
-window.addEventListener('load', function () {
-  document.querySelectorAll('pre > code.code').forEach(function (block) {
-    return highlight_js__WEBPACK_IMPORTED_MODULE_0__["default"].highlightElement(block);
-  });
-});
+highlight_js__WEBPACK_IMPORTED_MODULE_0__["default"].initHighlightingOnLoad();
 })();
 
 /******/ })()

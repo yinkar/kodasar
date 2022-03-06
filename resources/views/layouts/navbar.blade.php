@@ -10,16 +10,7 @@
             <div class="navbar-menu">
                 <ul class="flex">
                     <li class="mx-2">
-                        <a href="/" class="text-neutral-100 hover:text-neutral-50 transition-colors font-questrial">Dictionaries</a>
-                    </li>
-                    <li class="mx-2">
-                        <a href="#" class="text-neutral-500 hover:text-neutral-400 transition-colors font-questrial">Hello Worlds</a>
-                    </li>
-                    <li class="mx-2">
-                        <a href="#" class="text-neutral-500 hover:text-neutral-400 transition-colors font-questrial">Example Tutorials</a>
-                    </li>
-                    <li class="mx-2">
-                        <a href="#" class="text-neutral-500 hover:text-neutral-400 transition-colors font-questrial">Encyclopedia</a>
+                        <a href="/dictionaries" class="text-neutral-100 hover:text-neutral-50 transition-colors font-questrial">Dictionaries</a>
                     </li>
                 </ul>
             </div>
