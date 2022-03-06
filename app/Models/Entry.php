@@ -10,6 +10,8 @@ class Entry extends Model
 {
     use HasFactory, Searchable;
 
+    public $timestamps = true;
+
     protected $fillable = [
         'command',
         'info',
