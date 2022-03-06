@@ -1,14 +1,14 @@
 
-    <nav class="navbar w-fill h-14 bg-neutral-800 border-b-4 border-blue-600 flex items-center justify-between">
-        <div class="navbar-left flex">
-            <div class="logo mx-4">
+    <nav class="navbar w-fill lg:h-14 bg-neutral-800 border-b-4 border-blue-600 flex items-center justify-between flex-col lg:flex-row">
+        <div class="navbar-left flex flex-col justify-center items-center lg:flex-row">
+            <div class="logo mx-4 my-2 lg:my-0">
                 <a href="{{ URL::to('/') }}" title="{{ config('app.name') }}">
-                    <img src="{{ url('/images/logo.png') }}" alt="{{ config('app.name') }}" width="170" height="25" />
+                    <img src="{{ asset('images/logo.png') }}" alt="{{ config('app.name') }}" width="170" height="25" />
                 </a>
             </div>
 
             <div class="navbar-menu">
-                <ul class="flex">
+                <ul class="flex flex-col">
                     <li class="mx-2">
                         <a href="/dictionaries" class="text-neutral-100 hover:text-neutral-50 transition-colors font-questrial">Dictionaries</a>
                     </li>
@@ -16,14 +16,14 @@
             </div>
         </div>
 
-        <div class="navbar-right flex">
+        <div class="navbar-right flex flex-col justify-center items-center lg:flex-row">
             <div class="navbar-icons">
-                <a href="#" class="bg-neutral-600 hover:bg-neutral-500 text-neutral-400 transition-colors h-8 w-8 flex items-center justify-center rounded-sm">
+                <a href="#" class="bg-neutral-600 hover:bg-neutral-500 text-neutral-400 transition-colors h-8 w-8 mb-2 lg:mb-0 flex items-center justify-center rounded-sm">
                     <i class="fa-solid fa-pen text-sm"></i>
                 </a>
             </div>
 
-            <div class="search-bar flex mx-4 overflow-hidden rounded-sm items-center">
+            <div class="search-bar flex mx-4 overflow-hidden rounded-sm items-center mb-2 lg:mb-0">
                 <form action="{{ url('search') }}" method="GET">
                     <div class="input-group relative flex flex-nowrap rounded">
                         <input type="search" name="q" class="form-control relative h-8 flex-auto min-w-0 block w-full px-3 py-1.5 text-base font-normal text-neutral-50 bg-neutral-700 bg-clip-padding border-0 transition ease-in-out m-0 focus:text-neutral-100 focus:bg-neutral-600 focus:outline-none placeholder-neutral-500" placeholder="Search" spellcheck="false" />

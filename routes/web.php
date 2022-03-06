@@ -4,8 +4,6 @@ use App\Http\Controllers\DictionaryController;
 use App\Http\Controllers\EntryController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\UserController;
-use App\Models\Entry;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -36,9 +34,13 @@ Route::controller(EntryController::class)->group(function () {
 
 // Users
 Route::controller(UserController::class)->group(function () {
-    Route::get('/login', 'login');
-    Route::get('/register', 'register');
-    Route::post('/register', 'save');
+    Route::get('/register', 'register')->middleware('guest');
+    Route::post('/register', 'save')->middleware('guest');
+    
+    Route::get('/login', 'login')->middleware('guest');
+    Route::post('/login', 'session')->middleware('guest');
+
+    Route::get('/logout', 'logout');
 });
 
 // Search

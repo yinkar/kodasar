@@ -59381,7 +59381,7 @@ var __webpack_exports__ = {};
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var highlight_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! highlight.js */ "./node_modules/highlight.js/es/index.js");
 
-highlight_js__WEBPACK_IMPORTED_MODULE_0__["default"].initHighlightingOnLoad();
+highlight_js__WEBPACK_IMPORTED_MODULE_0__["default"].highlightAll();
 })();
 
 /******/ })()

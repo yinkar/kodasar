@@ -19,7 +19,7 @@ class DictionaryController extends Controller
          $dictionaries = cache()
              ->remember(
                  'dictionaries',
-                 now()->addMinutes(30),
+                 now()->addMinutes(1),
                  fn () => Dictionary::all()
              );
 

@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\ValidationException;
 
 /**
  * Users
@@ -22,13 +22,29 @@ class UserController extends Controller
     }
 
     /**
+     * Start user session
+     *
+     * @return void
+     */
+    public function session(Request $request) {
+        if (auth()->attempt([
+            'username' => $request->username,
+            'password' => $request->password
+        ])) {
+            return redirect(url('/'));
+        }
+
+        throw ValidationException::withMessages([
+            'username' => 'Login error.'
+        ]);
+    }
+
+    /**
      * Register
      *
      * @return \Illuminate\Http\Response
      */
     public function register() {
-        $users = User::all();
-
         return response()
             ->view('users.register');
     }
@@ -36,10 +52,9 @@ class UserController extends Controller
     /**
      * Save user
      *
-     * @param Request $request
      * @return void
      */
-    public function save(Request $request) {
+    public function save() {
         $userValidation = request()->validate([
             'name' => 'required|max:255',
             'username' => 'required|min:3|max:50|unique:users,username',
@@ -48,8 +63,24 @@ class UserController extends Controller
             'gender' => 'required',
         ]);
 
-        User::create($userValidation);
+        $user = User::create($userValidation);
+        $user->markEmailAsVerified();
 
-        return redirect(url('register'));
+        session()->flash('success', 'Registration successful.');
+
+        auth()->login($user);
+
+        return redirect(url('/'));
+    }
+
+    /**
+     * Logout
+     *
+     * @return void
+     */
+    public function logout() {
+        auth()->logout();
+
+        return redirect(url('/'));
     }
 }
