@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreDictionaryRequest;
 use App\Http\Requests\UpdateDictionaryRequest;
 use App\Models\Dictionary;
-use App\Models\User;
 
 class DictionaryController extends Controller
 {
@@ -34,7 +33,8 @@ class DictionaryController extends Controller
      */
     public function create()
     {
-        //
+        return response()
+            ->view('dictionaries.create');
     }
 
     /**
@@ -45,7 +45,7 @@ class DictionaryController extends Controller
      */
     public function store(StoreDictionaryRequest $request)
     {
-        //
+        dd($request);
     }
 
     /**

@@ -23,13 +23,21 @@ Route::controller(DictionaryController::class)->group(function () {
     Route::get('/dictionaries', 'index');
     Route::get('/dictionaries/{dictionary:slug}', 'show')
         ->where('dictionaries', '[a-z\-]+');
+
+    Route::get('/create_dictionary', 'create');
+    Route::post('/create_dictionary', 'store');
 });
 
 // Entries
 Route::controller(EntryController::class)->group(function () {        
-    Route::get('/dictionaries/{dictionary:slug}/entry/{entry}', 'show')
+    Route::get('/dictionaries/{dictionary:slug}/entries/{entry}', 'show')
         ->where('dictionaries', '[a-z\-]+')->whereNumber('entry')
         ->name('entry.show');
+
+    Route::get('/dictionaries/{dictionary:slug}/create_entry', 'create')
+        ->where('dictionaries', '[a-z\-]+');
+    Route::post('/dictionaries/{dictionary:slug}/create_entry', 'store')
+        ->where('dictionaries', '[a-z\-]+');
 });
 
 // Users
@@ -41,6 +49,9 @@ Route::controller(UserController::class)->group(function () {
     Route::post('/login', 'session')->middleware('guest');
 
     Route::get('/logout', 'logout');
+
+    Route::get('/users', 'list');
+    Route::get('/users/{user:id}', 'profile');
 });
 
 // Search

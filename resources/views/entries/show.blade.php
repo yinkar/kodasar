@@ -37,7 +37,7 @@
         </p>
         
         <p class="my-2">
-            <strong>From:</strong> <a class="font-bold text-blue-400 hover:text-blue-300 transition-colors" href="#">{{ $entry->user->username }}</a>
+            <strong>From:</strong> <a class="font-bold text-blue-400 hover:text-blue-300 transition-colors" href="{{ url('users', $entry->user->id) }}">{{ $entry->user->username }}</a>
         </p>
     </section>
 </x-two_column>

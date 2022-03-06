@@ -14,17 +14,12 @@
         </li>
         @else
         <li>
-            <a href="#" class="profile-link bg-green-600 block px-4 py-2 hover:bg-green-500 transition-colors my-1 rounded-sm">
+            <a href="{{ url('users', auth()->user()->id ) }}" class="profile-link bg-green-600 block px-4 py-2 hover:bg-green-500 transition-colors my-1 rounded-sm">
                 {{ auth()->user()->username }}
             </a>
         </li>
         <li>
-            <a href="#" class="profile-link bg-blue-500 block px-4 py-2 hover:bg-blue-400 transition-colors my-1 rounded-sm">
-                Messages
-            </a>
-        </li>
-        <li>
-            <a href="#" class="profile-link bg-blue-500 block px-4 py-2 hover:bg-blue-400 transition-colors my-1 rounded-sm">
+            <a href="{{ url('users') }}" class="profile-link bg-blue-500 block px-4 py-2 hover:bg-blue-400 transition-colors my-1 rounded-sm">
                 Users
             </a>
         </li>

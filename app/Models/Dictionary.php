@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 
 class Dictionary extends Model
 {
@@ -29,5 +30,16 @@ class Dictionary extends Model
 
     public function entries() {
         return $this->hasMany(Entry::class, 'dictionary_id', 'id');
+    }
+
+    /**
+     * Set name attribute
+     *
+     * @param $name
+     * @return void
+     */
+    public function setNameAttribute($name) {
+        $this->attributes['name'] = $name;
+        $this->attributes['slug'] = Str::of($name)->slug('-');
     }
 }

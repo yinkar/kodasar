@@ -18,6 +18,6 @@
     </ul>
     
     <div class="my-3 links">
-        <a href="#" class="text-cyan-500 hover:text-cyan-700 transition-colors">Add language</a>
+        <a href="{{ url('create_dictionary') }}" class="text-cyan-500 hover:text-cyan-700 transition-colors">Add language</a>
     </div>
 </x-two_column>

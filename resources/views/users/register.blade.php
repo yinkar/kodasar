@@ -4,35 +4,35 @@
         <form action="{{ url('register') }}" method="POST">
             @csrf
             <div class="my-2">
-                <label class="block w-full py-2" for="name">Name</label>
+                <label class="block w-full py-2" for="name">Name*</label>
                 <input value="{{ old('name') }}" class="block w-full p-2 bg-neutral-600 rounded-sm focus:outline-none focus:bg-neutral-500" type="text" id="name" name="name" required />
                 @error('name')
                     <div class="text-sm text-red-600">{{ $message }}</div>
                 @enderror
             </div>
             <div class="my-2">
-                <label class="block w-full py-2" for="username">Username</label>
+                <label class="block w-full py-2" for="username">Username*</label>
                 <input value="{{ old('username') }}" class="block w-full p-2 bg-neutral-600 rounded-sm focus:outline-none focus:bg-neutral-500" type="text" id="username" name="username" required />
                 @error('username')
                     <div class="text-sm text-red-600">{{ $message }}</div>
                 @enderror
             </div>
             <div class="my-2">
-                <label class="block w-full py-2" for="email">Email</label>
+                <label class="block w-full py-2" for="email">Email*</label>
                 <input value="{{ old('email') }}" class="block w-full p-2 bg-neutral-600 rounded-sm focus:outline-none focus:bg-neutral-500" type="email" id="email" name="email" required />
                 @error('email')
                     <div class="text-sm text-red-600">{{ $message }}</div>
                 @enderror
             </div>
             <div class="my-2">
-                <label class="block w-full py-2" for="password">Password</label>
+                <label class="block w-full py-2" for="password">Password*</label>
                 <input class="block w-full p-2 bg-neutral-600 rounded-sm focus:outline-none focus:bg-neutral-500" type="password" id="password" name="password" required />
                 @error('password')
                     <div class="text-sm text-red-600">{{ $message }}</div>
                 @enderror
             </div>
             <div class="my-2">
-                <div class="block w-full py-2">Gender</div>
+                <div class="block w-full py-2">Gender*</div>
                 <div class="flex">
                     <div class="mr-4">
                         <input type="radio" name="gender" id="gender-female" value="female" @if(old('gender') === 'female') checked @endif />

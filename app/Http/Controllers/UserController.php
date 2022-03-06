@@ -83,4 +83,21 @@ class UserController extends Controller
 
         return redirect(url('/'));
     }
+
+    public function list() {
+        $users = cache()
+            ->remember(
+                'users',
+                now()->addMinutes(1),
+                fn () => User::all()
+            );
+
+       return response()
+           ->view('users.list', compact('users'));
+    }
+
+    public function profile(User $user) {
+        return response()
+                ->view('users.profile', compact('user'));
+    }
 }

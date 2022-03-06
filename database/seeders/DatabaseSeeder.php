@@ -22,7 +22,7 @@ class DatabaseSeeder extends Seeder
             'username' => 'kodasar',
             'email' => 'kodasar@example.com',
             'email_verified_at' => now(),
-            'password' => bcrypt('123123'),
+            'password' => '123123',
             'gender' => 'male',
             'remember_token' => Str::random(10),
         ]);
@@ -36,7 +36,6 @@ class DatabaseSeeder extends Seeder
         ) {
             \App\Models\Dictionary::create([
                 'name' => $name,
-                'slug' => Str::of($name)->slug('-'),
                 'description' => '',
                 'validated' => true,
                 'user_id' => 1

@@ -24,9 +24,10 @@ class EntryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Dictionary $dictionary)
     {
-        //
+        return response()
+            ->view('entries.create', compact('dictionary'));
     }
 
     /**
