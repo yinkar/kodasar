@@ -18,9 +18,6 @@
 
         <div class="navbar-right flex flex-col justify-center items-center lg:flex-row">
             <div class="navbar-icons">
-                <a href="#" class="bg-neutral-600 hover:bg-neutral-500 text-neutral-400 transition-colors h-8 w-8 mb-2 lg:mb-0 flex items-center justify-center rounded-sm">
-                    <i class="fa-solid fa-pen text-sm"></i>
-                </a>
             </div>
 
             <div class="search-bar flex mx-4 overflow-hidden rounded-sm items-center mb-2 lg:mb-0">
