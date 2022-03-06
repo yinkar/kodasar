@@ -21,6 +21,8 @@
     </ul>
 
     <div class="my-3 links">
+        @auth
         <a href="{{ url('dictionaries', [ $dictionary->slug, 'create_entry' ]) }}" class="text-cyan-500 hover:text-cyan-700 transition-colors">Add entry</a>
+        @endauth
     </div>
 </x-two_column>

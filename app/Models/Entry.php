@@ -33,4 +33,15 @@ class Entry extends Model
     public function user() {
         return $this->belongsTo(User::class, 'user_id', 'id');
     }
+
+    public function getExampleAttribute() {
+        return (function () {
+            try {
+                return \base64_decode($this->attributes['example']);
+            }
+            catch (\Exception $e) {
+                return '';
+            }
+        })();
+    }
 }

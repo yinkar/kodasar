@@ -24,8 +24,8 @@ Route::controller(DictionaryController::class)->group(function () {
     Route::get('/dictionaries/{dictionary:slug}', 'show')
         ->where('dictionaries', '[a-z\-]+');
 
-    Route::get('/create_dictionary', 'create');
-    Route::post('/create_dictionary', 'store');
+    Route::get('/create_dictionary', 'create')->middleware('auth');
+    Route::post('/create_dictionary', 'store')->middleware('auth');
 });
 
 // Entries
@@ -35,9 +35,9 @@ Route::controller(EntryController::class)->group(function () {
         ->name('entry.show');
 
     Route::get('/dictionaries/{dictionary:slug}/create_entry', 'create')
-        ->where('dictionaries', '[a-z\-]+');
+        ->where('dictionaries', '[a-z\-]+')->middleware('auth');
     Route::post('/dictionaries/{dictionary:slug}/create_entry', 'store')
-        ->where('dictionaries', '[a-z\-]+');
+        ->where('dictionaries', '[a-z\-]+')->middleware('auth');
 });
 
 // Users
@@ -45,7 +45,7 @@ Route::controller(UserController::class)->group(function () {
     Route::get('/register', 'register')->middleware('guest');
     Route::post('/register', 'save')->middleware('guest');
     
-    Route::get('/login', 'login')->middleware('guest');
+    Route::get('/login', 'login')->middleware('guest')->name('login');
     Route::post('/login', 'session')->middleware('guest');
 
     Route::get('/logout', 'logout');

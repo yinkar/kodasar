@@ -84,6 +84,11 @@ class UserController extends Controller
         return redirect(url('/'));
     }
 
+    /**
+     * List users
+     *
+     * @return void
+     */
     public function list() {
         $users = cache()
             ->remember(
@@ -96,6 +101,12 @@ class UserController extends Controller
            ->view('users.list', compact('users'));
     }
 
+    /**
+     * User profile
+     *
+     * @param User $user
+     * @return void
+     */
     public function profile(User $user) {
         return response()
                 ->view('users.profile', compact('user'));

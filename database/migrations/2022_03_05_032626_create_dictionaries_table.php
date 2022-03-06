@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('slug');
-            $table->string('description');
+            $table->string('description')->nullable();
             $table->foreignId('user_id');
             $table->boolean('validated');
             $table->timestamps();

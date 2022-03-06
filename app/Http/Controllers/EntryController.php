@@ -6,6 +6,7 @@ use App\Http\Requests\StoreEntryRequest;
 use App\Http\Requests\UpdateEntryRequest;
 use App\Models\Dictionary;
 use App\Models\Entry;
+use Illuminate\Support\Facades\Gate;
 
 class EntryController extends Controller
 {
@@ -38,7 +39,30 @@ class EntryController extends Controller
      */
     public function store(StoreEntryRequest $request)
     {
-        //
+        $entryValidation = $request->validate([
+            'command' => 'required|unique:entries,command',
+            'info' => 'required',
+            'library' => 'nullable',
+            'example' => 'nullable',
+            'extra' => 'nullable',
+            'dictionary_id' => 'required',
+        ]);
+
+        $entryValidation = array_merge(
+            $entryValidation,
+            [
+                'validated' => true,
+                'user_id' => auth()->user()->id,
+            ]
+        );
+
+        $entry = Entry::create($entryValidation);
+
+        session()->flash('success', 'Entry created successfully.');
+
+        $dictionary = Dictionary::find($entry->dictionary_id)->first();
+
+        return redirect(url('dictionaries', [ $dictionary->slug, 'entries', $entry->id ]));
     }
 
     /**

@@ -41,7 +41,7 @@ class DictionaryPolicy
      */
     public function create(User $user)
     {
-        //
+        return true;
     }
 
     /**

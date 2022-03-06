@@ -2164,34 +2164,6 @@ module.exports = {
 
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
-window.addEventListener('load', function () {
-  if (localStorage.theme === "dark" || !("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches) {
-    document.documentElement.classList.add("dark");
-  } else {
-    document.documentElement.classList.remove("dark");
-  }
-
-  var toLight = document.querySelector('#to-light');
-  var toDark = document.querySelector('#to-dark');
-
-  if (localStorage.theme === 'dark') {
-    toLight.classList.remove('hidden');
-    toLight.classList.add('block');
-  } else {
-    toDark.classList.remove('hidden');
-    toDark.classList.add('block');
-  }
-
-  toDark.addEventListener('click', function () {
-    localStorage.theme = 'dark';
-    window.location.reload();
-  });
-  toLight.addEventListener('click', function () {
-    localStorage.theme = 'light';
-    window.location.reload();
-  });
-});
-
 /***/ }),
 
 /***/ "./resources/js/bootstrap.js":

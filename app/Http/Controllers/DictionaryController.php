@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreDictionaryRequest;
 use App\Http\Requests\UpdateDictionaryRequest;
 use App\Models\Dictionary;
+use Illuminate\Support\Facades\Gate;
 
 class DictionaryController extends Controller
 {
@@ -45,7 +46,26 @@ class DictionaryController extends Controller
      */
     public function store(StoreDictionaryRequest $request)
     {
-        dd($request);
+        $dictionaryValidation = $request->validate([
+            'name' => 'required|unique:dictionaries,name',
+        ]);
+
+        $dictionaryValidation = array_merge(
+            $dictionaryValidation,
+            [
+                'description' => '',
+                'validated' => true,
+                'user_id' => auth()->user()->id,
+            ]
+        );
+
+        $dictionary = Dictionary::create($dictionaryValidation);
+
+        session()->flash('success', 'Dictionary created successfully.');
+
+        cache()->forget('dictionaries');
+
+        return redirect(url('dictionaries', $dictionary->slug));
     }
 
     /**

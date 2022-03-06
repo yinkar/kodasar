@@ -1,6 +1,6 @@
 <x-two_column title="{{ sprintf('Register - %s', config('app.name')) }}">
     <h2 class="text-cyan-400 text-3xl mt-10 mb-4 text-center font-questrial">Register</h2>
-    <div class="w-96 mx-auto mb-10">
+    <div class="lg:w-96 mx-auto mb-10">
         <form action="{{ url('register') }}" method="POST">
             @csrf
             <div class="my-2">
